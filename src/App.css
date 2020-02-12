@@ -1,6 +1,6 @@
 .header {
   align-items: center;
-  background: #000;
+  background: #24292e;
   box-sizing: border-box;
   display: flex;
   height: 50px;
@@ -21,6 +21,7 @@
   width: 100%;
 }
 .header-form-input {
+  background-color: hsla(0,0%,100%,.125);
   border: none;
   border-radius: 5px;
   box-sizing: border-box;
@@ -28,4 +29,12 @@
   height: 28px;
   padding: 5px 10px;
   width: 100%;
+}
+.header-form-input.focus {
+  background-color: #FFF;
+}
+@media screen and (min-device-width: 768px) {
+  .header-form {
+    width: 300px;
+  }
 }
