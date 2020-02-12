@@ -21,17 +21,19 @@
   width: 100%;
 }
 .header-form-input {
-  background-color: hsla(0,0%,100%,.125);
+  background-color: #454545;
   border: none;
   border-radius: 5px;
   box-sizing: border-box;
+  color: #CCC;
   font-size: 16px;
   height: 28px;
   padding: 5px 10px;
   width: 100%;
 }
 .header-form-input.focus {
-  background-color: #FFF;
+  background-color: #D7D7D7;
+  color: #000;
 }
 @media screen and (min-device-width: 768px) {
   .header-form {
