@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './redux/store/index';
 import App from './App';
 import './index.css';
 
-import store from "./redux/store/index";
-import { addUsername } from "./redux/actions/index";
-window.store = store;
-window.addUsername = addUsername;
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
