@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserForm from './UserForm';
+import UserRepos from './UserRepos';
 import './App.css';
 
 class App extends Component {
@@ -13,6 +14,9 @@ class App extends Component {
           </a>
           <UserForm />
         </header>
+        <main>
+          <UserRepos />
+        </main>
       </div>
     );
   }

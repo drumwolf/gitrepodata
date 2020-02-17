@@ -1,11 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addUsername } from './redux/actions/index';
 
-function UserForm(props) {
+function mapDispatchToProps(dispatch) {
+  return {
+    addUsername: username => dispatch(addUsername(username))
+  }
+}
+
+function ConnectedForm(props) {
 
   const fetchUser = (e) => {
     e.preventDefault();
     const username = e.target.input.value;
-    console.log(e.target.input.value)
+    props.addUsername(username);
   }
 
   const toggleFocus = (e) => {
@@ -23,5 +31,7 @@ function UserForm(props) {
     </form>
   );
 }
+
+const UserForm = connect(null, mapDispatchToProps)(ConnectedForm);
 
 export default UserForm;
