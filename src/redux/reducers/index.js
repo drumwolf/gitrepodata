@@ -1,14 +1,14 @@
-import { ADD_USERNAME } from '../actions/constants';
+import { ADD_USER } from '../actions/constants';
 
 const initialState = {
-  username: null,
+  user: null,
   repos: [],
   stargazers: []
 };
 
 function rootReducer(state = initialState, action) {
-  if (action.type === ADD_USERNAME) {
-  	return {...state, ...action.payload}
+  if (action.type === ADD_USER) {
+  	return {...state, user: action.payload}
   }
   return state;
 };

@@ -1,5 +1,5 @@
-import { ADD_USERNAME } from './constants';
+import { ADD_USER } from './constants';
 
-export function addUsername(username) {
-  return { type: ADD_USERNAME, payload: { username } }
+export function addUser(user) {
+  return { type: ADD_USER, payload: user }
 };
