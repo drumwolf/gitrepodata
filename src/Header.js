@@ -15,8 +15,8 @@ function ConnectedForm(props) {
   const fetchUser = async (e) => {
     e.preventDefault();
     const username = e.target.input.value;
-    const {login, avatar_url, name} = await Loader.getUser(username);
-    props.addUser({login, avatar_url, name});
+    const {login, avatar_url, name, html_url} = await Loader.getUser(username);
+    props.addUser({login, avatar_url, name, html_url});
   }
 
   const toggleFocus = (e) => {

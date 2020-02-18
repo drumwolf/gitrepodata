@@ -1,0 +1,26 @@
+.main {
+  text-align: center;
+  width: 100%;
+}
+.main-avatar {
+  margin-right: 20px;
+  width: 80px;
+}
+.main-profile {
+  display: flex;
+  padding: 15px;
+}
+.main-info {
+  display: grid;
+  padding: 10px 0;
+  text-align: left;
+}
+.main-name {
+  font-weight: 700;
+  font-size: 28px;
+}
+.main-link {
+  color: #666;
+  font-weight: 300;
+  text-decoration: none;
+}

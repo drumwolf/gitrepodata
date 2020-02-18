@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux";
+import './Main.css';
 
 const mapStateToProps = store => {
   return store;
@@ -10,13 +11,15 @@ function ConnectedRepos(props) {
   const user = props.user;
 
   return (<main>
-    {user && <div className="main-profile">
-      <img src={user.avatar_url} className="main-avatar" />
-      <div>
-        <h1 className="main-name">{user.name}</h1>
-        <p>{user.login}</p>
-      </div>
-    </div>}
+    {user && <React.Fragment>
+      <section className="main-profile">
+        <img src={user.avatar_url} className="main-avatar" />
+        <div className="main-info">
+          <h1 className="main-name">{user.name}</h1>
+          <a className="main-link" href={user.html_url} target="_blank">@{user.login}</a>
+        </div>
+      </section>
+    </React.Fragment>}
   </main>); 
 }
 
