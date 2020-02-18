@@ -1,12 +1,13 @@
 import React from 'react';
 import Loader from './Loader';
 import { connect } from 'react-redux';
-import { addUser } from './redux/actions/index';
+import { addUser, addRepos } from './redux/actions/index';
 import './Header.css';
 
 function mapDispatchToProps(dispatch) {
   return {
-    addUser: user => dispatch(addUser(user))
+    addUser: user => dispatch(addUser(user)),
+    addRepos: repos => dispatch(addRepos(repos))
   }
 }
 
@@ -15,8 +16,12 @@ function ConnectedForm(props) {
   const fetchUser = async (e) => {
     e.preventDefault();
     const username = e.target.input.value;
+    // add user info
     const {login, avatar_url, name, html_url} = await Loader.getUser(username);
     props.addUser({login, avatar_url, name, html_url});
+    // add repos
+    const repos = await Loader.getRepos(login);
+    props.addRepos(repos);
   }
 
   const toggleFocus = (e) => {

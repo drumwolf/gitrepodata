@@ -1,26 +1,29 @@
 .main {
-  text-align: center;
+  padding: 15px;
   width: 100%;
-}
-.main-avatar {
-  margin-right: 20px;
-  width: 80px;
 }
 .main-profile {
   display: flex;
-  padding: 15px;
+  margin-bottom: 20px;
 }
-.main-info {
+.main-profile-avatar {
+  margin-right: 20px;
+  width: 80px;
+}
+.main-profile-info {
   display: grid;
   padding: 10px 0;
   text-align: left;
 }
-.main-name {
+.main-profile-name {
   font-weight: 700;
   font-size: 28px;
 }
-.main-link {
+.main-profile-link {
   color: #666;
   font-weight: 300;
   text-decoration: none;
+}
+.main-repos {
+  
 }
