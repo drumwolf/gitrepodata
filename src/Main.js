@@ -13,7 +13,7 @@ function ConnectedRepos(props) {
   return (<main>
     {user && <React.Fragment>
       <section className="main-profile">
-        <img src={user.avatar_url} className="main-avatar" />
+        <a href={user.html_url} target="_blank"><img src={user.avatar_url} className="main-avatar" /></a>
         <div className="main-info">
           <h1 className="main-name">{user.name}</h1>
           <a className="main-link" href={user.html_url} target="_blank">@{user.login}</a>
