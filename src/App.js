@@ -14,7 +14,7 @@ class App extends Component {
           </a>
           <UserForm />
         </header>
-        <main>
+        <main className="main">
           <UserRepos />
         </main>
       </div>
