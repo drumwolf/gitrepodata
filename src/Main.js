@@ -9,7 +9,7 @@ function ConnectedRepos(props) {
   useEffect( () => console.log("props: ",props) );
   const user = props.user;
 
-  return (<React.Fragment>
+  return (<main>
     {user && <div className="main-profile">
       <img src={user.avatar_url} className="main-avatar" />
       <div>
@@ -17,9 +17,9 @@ function ConnectedRepos(props) {
         <p>{user.login}</p>
       </div>
     </div>}
-  </React.Fragment>); 
+  </main>); 
 }
 
-const UserRepos = connect(mapStateToProps)(ConnectedRepos);
+const Main = connect(mapStateToProps)(ConnectedRepos);
 
-export default UserRepos;
+export default Main;
