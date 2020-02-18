@@ -1,0 +1,42 @@
+.header {
+  align-items: center;
+  background: #24292e;
+  box-sizing: border-box;
+  display: flex;
+  height: 50px;
+  padding: 0 10px;
+  width: 100%;
+}
+.header-logo {
+  background: #000;
+  border-radius: 50%;
+  padding-right: 10px;
+  width: 32px;
+  height: 32px;
+}
+.header-svg {
+  fill: #FFF;
+}
+.header-form {
+  width: 100%;
+}
+.header-form-input {
+  background-color: #454545;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #CCC;
+  font-size: 16px;
+  height: 28px;
+  padding: 5px 10px;
+  width: 100%;
+}
+.header-form-input.focus {
+  background-color: #D7D7D7;
+  color: #000;
+}
+@media screen and (min-device-width: 768px) {
+  .header-form {
+    width: 300px;
+  }
+}
