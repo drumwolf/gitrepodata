@@ -8,7 +8,7 @@ const mapStateToProps = store => {
 
 function MainRepoLink(props) {
   const {name, url} = props;
-  return (<li className="main-repo-link"><a href={url} target="_blank">{name}</a></li>);
+  return (<li className="main-repo-item"><a className="main-repo-link" href={url} target="_blank">{name}</a></li>);
 }
 
 function ConnectedMain(props) {
