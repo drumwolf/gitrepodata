@@ -6,17 +6,35 @@ const mapStateToProps = store => {
   return store;
 };
 
+const onStargazersLinkClick = (e,name) => {
+  e.preventDefault();
+  console.log(name)
+}
+
 function MainRepoLink(props) {
   const {name, url} = props;
-  return (<li className="main-repo-item"><a className="main-repo-link" href={url} target="_blank">{name}</a></li>);
+  return (
+    <li className="main-repo-item">
+      <p><a className="main-repo-link" href={url} target="_blank">{name}</a></p>
+      <a href="#" className="main-repo-stargazers-link" onClick={onStargazersLinkClick.bind(this,name)}>see stargazers</a>
+    </li>
+  );
+}
+
+function MainGreeting(props) {
+  return (
+    <section>Please enter the username of a Github user in the input form in the top left header.</section>
+  );
 }
 
 function ConnectedMain(props) {
   useEffect( () => console.log("props: ",props) );
   const user = props.user;
-  const repos = (props.repos.length) ? props.repos.map( repo => <MainRepoLink key={'repo_'+repo.id} name={repo.name} url={repo.html_url}  />) : [];
+  const repos = (props.repos.length) ? props.repos.map( repo =>
+    <MainRepoLink key={'repo_'+repo.id} name={repo.name} url={repo.html_url} />) : [];
 
   return (<main className="main">
+    {!user && <MainGreeting />}
     {user && <React.Fragment>
       <section className="main-profile">
         <a href={user.html_url} target="_blank"><img src={user.avatar_url} className="main-profile-avatar" /></a>
