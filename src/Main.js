@@ -1,25 +1,11 @@
 import React, { useEffect } from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
+import MainRepoLink from './MainRepoLink';
 import './Main.css';
 
 const mapStateToProps = store => {
   return store;
 };
-
-const onStargazersLinkClick = (e,name) => {
-  e.preventDefault();
-  console.log(name)
-}
-
-function MainRepoLink(props) {
-  const {name, url} = props;
-  return (
-    <li className="main-repo-item">
-      <p><a className="main-repo-link" href={url} target="_blank">{name}</a></p>
-      <a href="#" className="main-repo-stargazers-link" onClick={onStargazersLinkClick.bind(this,name)}>see stargazers</a>
-    </li>
-  );
-}
 
 function MainGreeting(props) {
   return (
