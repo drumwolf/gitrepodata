@@ -17,16 +17,16 @@ function ConnectedMain(props) {
   useEffect( () => console.log("props: ",props) );
   const user = props.user;
   const repos = (props.repos.length) ? props.repos.map( repo =>
-    <MainRepoLink key={'repo_'+repo.id} name={repo.name} url={repo.html_url} />) : [];
+    <MainRepoLink key={'repo_'+repo.id} user={user.login} repo={repo.name} url={repo.html_url} />) : [];
 
   return (<main className="main">
     {!user && <MainGreeting />}
     {user && <React.Fragment>
       <section className="main-profile">
-        <a href={user.html_url} target="_blank"><img src={user.avatar_url} className="main-profile-avatar" /></a>
+        <a href={user.html_url} target="_blank" rel="noopener noreferrer"><img src={user.avatar_url} alt={user.name} className="main-profile-avatar" /></a>
         <div className="main-profile-info">
           <h1 className="main-profile-name">{user.name}</h1>
-          <a className="main-profile-link" href={user.html_url} target="_blank">@{user.login}</a>
+          <a className="main-profile-link" href={user.html_url} target="_blank" rel="noopener noreferrer">@{user.login}</a>
         </div>
       </section>
       <ul className="main-repos">{repos}</ul>

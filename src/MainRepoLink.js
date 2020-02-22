@@ -1,16 +1,18 @@
 import React from 'react';
+import Loader from './Loader';
 
-const onStargazersLinkClick = (e,name) => {
+const onStargazersLinkClick = async (e,user,repo) => {
   e.preventDefault();
-  console.log(name)
+  const data = await Loader.getStargazers(user,repo);
+  console.log('stargazers :: ', data)
 }
 
 function MainRepoLink(props) {
-  const {name, url} = props;
+  const {user, repo, url} = props;
   return (
     <li className="main-repo-item">
-      <p><a className="main-repo-link" href={url} target="_blank">{name}</a></p>
-      <a href="#" className="main-repo-stargazers-link" onClick={e => onStargazersLinkClick(e,name)}>see stargazers</a>
+      <p><a href="#" className="main-repo-link" href={url} target="_blank" rel="noopener noreferrer">{repo}</a></p>
+      <a href="#" className="main-repo-stargazers-link" onClick={e => onStargazersLinkClick(e,user,repo)}>see stargazers</a>
     </li>
   );
 }
