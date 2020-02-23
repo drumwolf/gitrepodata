@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import MainRepos from './MainRepos';
 import MainRepoLink from './MainRepoLink';
+import MainStargazers from './MainStargazers';
 import './Main.css';
 
 const mapStateToProps = store => {
@@ -21,7 +22,6 @@ function ConnectedMain(props) {
     <MainRepoLink key={'repo_'+repo.id} user={user.login} repo={repo.name} url={repo.html_url} />) : [];
   console.log(props.stargazers)
   const stargazers = (props.stargazers.length) ? props.stargazers.map( user => {
-    console.log(user)
     const { login, html_url, avatar_url, id } = user;
     return <li key={id} className="main-stargazer-item"><img src={avatar_url} className="main-stargazer-avatar" /><a href={html_url} className="main-stargazer-link">{login}</a></li>
   }) : [];
@@ -37,10 +37,7 @@ function ConnectedMain(props) {
         </div>
       </section>
       <MainRepos user={user.name} repos={repos} />
-      <section className="main-stargazers">
-        <h2 className="main-stargazers-header">Stargazers for repo: </h2>
-        <ul>{stargazers}</ul>
-      </section>
+      <MainStargazers name={'poo'} data={stargazers} />
     </React.Fragment>}
   </main>); 
 }
