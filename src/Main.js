@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import MainRepos from './MainRepos';
 import MainRepoLink from './MainRepoLink';
 import './Main.css';
 
@@ -18,6 +19,12 @@ function ConnectedMain(props) {
   const user = props.user;
   const repos = (props.repos.length) ? props.repos.map( repo =>
     <MainRepoLink key={'repo_'+repo.id} user={user.login} repo={repo.name} url={repo.html_url} />) : [];
+  console.log(props.stargazers)
+  const stargazers = (props.stargazers.length) ? props.stargazers.map( user => {
+    console.log(user)
+    const { login, html_url, avatar_url, id } = user;
+    return <li key={id} className="main-stargazer-item"><img src={avatar_url} className="main-stargazer-avatar" /><a href={html_url} className="main-stargazer-link">{login}</a></li>
+  }) : [];
 
   return (<main className="main">
     {!user && <MainGreeting />}
@@ -29,7 +36,11 @@ function ConnectedMain(props) {
           <a className="main-profile-link" href={user.html_url} target="_blank" rel="noopener noreferrer">@{user.login}</a>
         </div>
       </section>
-      <ul className="main-repos">{repos}</ul>
+      <MainRepos user={user.name} repos={repos} />
+      <section className="main-stargazers">
+        <h2 className="main-stargazers-header">Stargazers for repo: </h2>
+        <ul>{stargazers}</ul>
+      </section>
     </React.Fragment>}
   </main>); 
 }
