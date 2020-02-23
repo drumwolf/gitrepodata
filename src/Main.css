@@ -37,3 +37,17 @@
 .main-repo-stargazers-link {
   font-size: 12px;
 }
+@media only screen and (min-device-width: 767px) {
+  .main {
+    display: flex;
+  }
+  .main-profile {
+    flex-direction: column;
+  }
+  .main-profile-avatar {
+    width: 200px;
+  }
+  .main-repos {
+    width: 300px;
+  }
+}
