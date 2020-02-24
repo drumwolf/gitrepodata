@@ -1,13 +1,15 @@
 import React from 'react';
 import Loader from './Loader';
 import { connect } from 'react-redux';
-import { addUser, addRepos } from './redux/actions/index';
+import { addUser, addRepos, addRepo, addStargazers } from './redux/actions/index';
 import './Header.css';
 
 function mapDispatchToProps(dispatch) {
   return {
     addUser: user => dispatch(addUser(user)),
-    addRepos: repos => dispatch(addRepos(repos))
+    addRepos: repos => dispatch(addRepos(repos)),
+    addRepo: repo => dispatch(addRepo(repo)),
+    addStargazers: stargazers => dispatch(addStargazers(stargazers))
   }
 }
 
@@ -22,6 +24,9 @@ function ConnectedForm(props) {
     // add repos
     const repos = await Loader.getRepos(login);
     props.addRepos(repos);
+    // clear repo and stargazers
+    props.addRepo(null);
+    props.addStargazers(new Array());
   }
 
   const toggleFocus = (e) => {
