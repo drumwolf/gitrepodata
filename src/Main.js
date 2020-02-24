@@ -18,9 +18,9 @@ function MainGreeting(props) {
 function ConnectedMain(props) {
   useEffect( () => console.log("props: ",props) );
   const user = props.user;
+  const repo = props.repo;
   const repos = (props.repos.length) ? props.repos.map( repo =>
     <MainRepoLink key={'repo_'+repo.id} user={user.login} repo={repo.name} url={repo.html_url} />) : [];
-  console.log(props.stargazers)
   const stargazers = (props.stargazers.length) ? props.stargazers.map( user => {
     const { login, html_url, avatar_url, id } = user;
     return <li key={id} className="main-stargazer-item"><img src={avatar_url} className="main-stargazer-avatar" /><a href={html_url} className="main-stargazer-link">{login}</a></li>
@@ -37,7 +37,7 @@ function ConnectedMain(props) {
         </div>
       </section>
       <MainRepos user={user.name} repos={repos} />
-      <MainStargazers name={'poo'} data={stargazers} />
+      <MainStargazers name={repo} data={stargazers} />
     </React.Fragment>}
   </main>); 
 }

@@ -1,10 +1,11 @@
 import React from 'react';
 import Loader from './Loader';
 import { connect } from 'react-redux';
-import { addStargazers } from './redux/actions/index';
+import { addRepo, addStargazers } from './redux/actions/index';
 
 function mapDispatchToProps(dispatch) {
   return {
+    addRepo: repo => dispatch(addRepo(repo)),
     addStargazers: stargazers => dispatch(addStargazers(stargazers))
   }
 }
@@ -15,6 +16,7 @@ function ConnectedLink(props) {
   const onStargazersLinkClick = async (e,user,repo) => {
     e.preventDefault();
     const data = await Loader.getStargazers(user,repo);
+    props.addRepo(repo);
     props.addStargazers(data);
   }
 
