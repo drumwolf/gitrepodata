@@ -94,3 +94,17 @@
     width: 250px;
   }
 }
+@media only screen and (min-width: 1024px) {
+  .main {
+    width: 1000px;
+  }
+  .main-profile-avatar {
+    width: 250px;
+  }
+  .main-repos {
+    width: 350px;
+  }
+  .main-stargazers {
+    width: 350px;
+  }
+}
