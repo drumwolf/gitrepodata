@@ -17,11 +17,10 @@ function MainGreeting(props) {
 
 function ConnectedMain(props) {
   useEffect( () => console.log("props: ",props) );
-  const user = props.user;
-  const repo = props.repo;
-  const repos = (props.repos.length) ? props.repos.map( repo =>
+  const { user, repo, repos, stargazers } = props;
+  const repoLinks = (repos.length) ? repos.map( repo =>
     <MainRepoLink key={'repo_'+repo.id} user={user.login} repo={repo.name} url={repo.html_url} />) : [];
-  const stargazers = (props.stargazers.length) ? props.stargazers.map( user => {
+  const stargazerLinks = (stargazers.length) ? stargazers.map( user => {
     const { login, html_url, avatar_url, id } = user;
     return <li key={id} className="main-stargazer-item"><img src={avatar_url} className="main-stargazer-avatar" /><a href={html_url} className="main-stargazer-link">{login}</a></li>
   }) : [];
@@ -36,8 +35,8 @@ function ConnectedMain(props) {
           <a className="main-profile-link" href={user.html_url} target="_blank" rel="noopener noreferrer">@{user.login}</a>
         </div>
       </section>
-      <MainRepos user={user.name} repos={repos} />
-      <MainStargazers name={repo} data={stargazers} />
+      <MainRepos user={user.login} repos={repoLinks} />
+      <MainStargazers name={repo} data={stargazerLinks} />
     </React.Fragment>}
   </main>); 
 }
