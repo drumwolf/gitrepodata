@@ -1,7 +1,60 @@
 .main {
   box-sizing: border-box;
   padding: 15px;
+  text-align: center;
   width: 100%;
+}
+@media only screen and (min-device-width: 768px) {
+  .main {
+    box-sizing: border-box;
+    display: flex;
+    margin: 0 auto;
+    padding: 20px 0 0;
+    text-align: inherit;
+    width: 768px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .main {
+    width: 1000px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .main {
+    width: 1200px;
+  }
+}
+/* default page */
+.main-default-avatar {
+  margin: 0 auto;
+  width: 80%;
+}
+.main-default-header {
+  font-weight: 700;
+  font-size: 28px;
+  padding: 10px 0;
+  text-align: center;
+}
+.main-default-text {
+  font-size: 1.1em;
+  line-height: 1.5;
+  text-align: left;
+}
+@media only screen and (min-device-width: 768px) {
+  .main-default-header {
+    text-align: left;
+  }
+  .main-default-text {
+    font-size: 1em;
+  }
+  .main-default-avatar {
+    width: 180px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .main-default-avatar {
+    width: 250px;
+  }
 }
 .main-profile {
   display: flex;
@@ -76,11 +129,6 @@
   font-weight: 100;
 }
 @media only screen and (min-device-width: 768px) {
-  .main {
-    box-sizing: border-box;
-    display: flex;
-    width: 768px;
-  }
   .main-profile {
     flex-direction: column;
   }
@@ -95,9 +143,6 @@
   }
 }
 @media only screen and (min-width: 1024px) {
-  .main {
-    width: 1000px;
-  }
   .main-profile-avatar {
     width: 250px;
   }

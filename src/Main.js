@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import MainDefault from './MainDefault';
 import MainRepos from './MainRepos';
 import MainRepoLink from './MainRepoLink';
 import MainStargazers from './MainStargazers';
@@ -8,12 +9,6 @@ import './Main.css';
 const mapStateToProps = store => {
   return store;
 };
-
-function MainGreeting(props) {
-  return (
-    <section>Please enter the username of a Github user in the input form in the top left header.</section>
-  );
-}
 
 function ConnectedMain(props) {
   useEffect( () => console.log("props: ",props) );
@@ -26,7 +21,7 @@ function ConnectedMain(props) {
   }) : [];
 
   return (<main className="main">
-    {!user && <MainGreeting />}
+    {!user && <MainDefault />}
     {user && <React.Fragment>
       <section className="main-profile">
         <a href={user.html_url} target="_blank" rel="noopener noreferrer"><img src={user.avatar_url} alt={user.name} className="main-profile-avatar" /></a>
